@@ -12,7 +12,10 @@
 
 @property NSArray *d6Values;
 @property NSString *rollResult;
+@property BOOL held;
 
+-(instancetype)init;
+-(void)toHoldSwitch;
 -(void)diceRoll;
 
 @end

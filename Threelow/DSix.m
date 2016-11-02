@@ -10,19 +10,31 @@
 
 @implementation DSix
 
-- (instancetype)init
+-(instancetype)init
 {
     self = [super init];
     if (self) {
         _d6Values = @[@"⚀", @"⚁", @"⚂", @"⚃", @"⚄", @"⚅"];
+        _held = FALSE;
     }
     return self;
 }
 
+-(void)toHoldSwitch
+{
+    if(self.held == FALSE){
+        self.held = TRUE;
+    }
+}
+
 -(void)diceRoll
 {
-    int rollD = arc4random_uniform(5);
-    _rollResult = [self.d6Values objectAtIndex:rollD];
+    if (self.held == FALSE)
+    {
+        int rollD = arc4random_uniform(5);
+        _rollResult = [self.d6Values objectAtIndex:rollD];
+        NSLog(@"%@", self.rollResult);
+    }
 }
 
 @end
