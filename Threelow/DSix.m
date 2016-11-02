@@ -26,6 +26,12 @@
         self.held = TRUE;
     }
 }
+-(void)unHoldSwitch
+{
+    if(self.held == TRUE){
+        self.held = FALSE;
+    }
+}
 
 -(NSInteger)diceRoll
 {

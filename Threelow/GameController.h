@@ -12,10 +12,11 @@
 
 @property NSMutableArray *diceBag;
 @property NSMutableSet *heldDice;
-
+@property NSInteger rollScore;
 
 -(instancetype)initWithDice:(NSInteger)num;
 -(void)holdDie:(NSInteger)hold;
 -(void)rollAllDice;
-
+-(void)resetAllHeld;
+-(void)unHoldDie:(NSInteger)hold;
 @end

@@ -12,6 +12,7 @@
 #import "DSix.h"
 #import "GameController.h"
 #import <Foundation/Foundation.h>
+#import <stdio.h>
 
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
@@ -20,10 +21,44 @@ int main(int argc, const char * argv[]) {
         
         while(TRUE)
         {
-            [GC rollAllDice];
+            char inputChars[255];
             
-            [GC holdDie:3];
-            [GC rollAllDice];
+            NSLog(@"What would you like to do? \n 'roll' \n or 'quit'");
+            fgets(inputChars, 255, stdin);
+            strtok(inputChars, "\n");
+            NSString *inputStr = [NSString stringWithUTF8String:inputChars];
+            
+            if ([inputStr isEqualToString:@"roll"])
+            {
+                NSLog(@"Are you holding any dice this roll? \n 'yes' or 'no'");
+                char secondInp[255];
+                fgets(secondInp, 255, stdin);
+                strtok(secondInp, "\n");
+                NSString *secInputStr = [NSString stringWithUTF8String:secondInp];
+                if([secInputStr isEqualToString:@"yes"])
+                {
+                    int hold;
+                    NSLog(@"How many to hold? (no higher than 5)");
+                    scanf("%d", &hold);
+                    [GC holdDie:hold];
+                    [GC rollAllDice];
+                }if([secInputStr isEqualToString:@"no"])
+                {
+                    [GC rollAllDice];
+                }
+            }if ([inputStr isEqualToString:@"quit"])
+            {
+                break;
+            }
+            
+            //            [GC rollAllDice];
+            //
+            //            [GC holdDie:3];
+            //            [GC rollAllDice];
+            //            [GC unHoldDie:2];
+            //            [GC rollAllDice];
+            //            
+            
         }
     }
     return 0;
