@@ -5,9 +5,14 @@
 //  Created by Matthew Mauro on 2016-11-02.
 //  Copyright © 2016 Matthew Mauro. All rights reserved.
 //
+#import <stdlib.h>
+#import <Foundation/Foundation.h>
 
-#import <Cocoa/Cocoa.h>
+@interface DSix : NSObject
 
-@interface DSix : Question
+@property NSArray *d6Values;
+@property NSString *rollResult;
+
+-(void)diceRoll;
 
 @end
