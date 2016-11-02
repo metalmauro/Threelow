@@ -16,6 +16,6 @@
 
 -(instancetype)init;
 -(void)toHoldSwitch;
--(void)diceRoll;
+-(NSInteger)diceRoll;
 
 @end

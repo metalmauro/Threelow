@@ -27,9 +27,18 @@
 
 -(void)rollAllDice
 {
+    NSInteger score = -1;
     for(DSix *d in self.diceBag)
     {
-        [d diceRoll];
+        score = [d diceRoll];
+        
+        if(score == 3)
+        {
+            score = 0;
+        }
+        if (score != -1){
+            NSLog(@"%ld", score);
+        }
     }
 }
 

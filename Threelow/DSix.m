@@ -27,14 +27,17 @@
     }
 }
 
--(void)diceRoll
+-(NSInteger)diceRoll
 {
+    int scoring = -1;
     if (self.held == FALSE)
     {
         int rollD = arc4random_uniform(5);
         _rollResult = [self.d6Values objectAtIndex:rollD];
         NSLog(@"%@", self.rollResult);
+        scoring = rollD+1;
     }
+    return scoring;
 }
 
 @end
